@@ -1,0 +1,9 @@
+{
+  "pixiv_login_url": "https://accounts.pixiv.net/login?lang=zh&source=pc&view_type=page&ref=wwwtop_accounts_index",
+  "pixiv_login_api": "https://accounts.pixiv.net/api/login?lang=en",
+  "pixiv_ajax_url": "https://www.pixiv.net/touch/ajax/illust/details?illust_id=",
+  "donmai_pic_url": "https://danbooru.donmai.us/posts/",
+  "pawoo_pic_url": "https://pawoo.net/@sakimori/",
+  "medibang_ajax_url": "https://medibang.com/api/picture/",
+  "yande_pic_url": "https://yande.re/post/show/"
+}
