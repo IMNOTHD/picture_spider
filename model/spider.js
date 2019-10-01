@@ -50,7 +50,7 @@ module.exports = {
             //console.log(e);
             code = 400;
         }
- 
+
         if (code === 200) {
             return {code: code, pic: pic, message: ''};
         } else if (code === 500) {
