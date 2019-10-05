@@ -38,7 +38,8 @@ module.exports = {
             'code': resultObject.code,
             'pic': resultObject.pic,
             'message': resultObject.message,
-            'msg': resultObject.message
+            'msg': resultObject.message,
+            'isR18': resultObject.isR18.toString()
         };
     },
     'POST /api/spider': async (ctx, next) => {
@@ -77,7 +78,8 @@ module.exports = {
             'code': resultObject.code,
             'pic': resultObject.pic,
             'message': resultObject.message,
-            'msg': resultObject.message
+            'msg': resultObject.message,
+            'isR18': resultObject.isR18.toString()
         };
     }
 };
