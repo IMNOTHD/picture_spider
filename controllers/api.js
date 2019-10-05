@@ -22,15 +22,19 @@ module.exports = {
                 case 'pawoo':
                     resultObject = await spider.pawoo(query['id']);
                     break;
-                case "medibang":
+                case 'medibang':
                     resultObject = await spider.medibang(query['id']);
                     break;
-                case "yande":
+                case 'yande':
                     resultObject = await spider.yande(query['id']);
                     break;
                 default:
                     break;
             }
+        }
+
+        if (typeof (resultObject.isR18) === 'undefined') {
+            resultObject.isR18 = 'null';
         }
 
         ctx.response.type = 'application/json';
@@ -39,7 +43,7 @@ module.exports = {
             'pic': resultObject.pic,
             'message': resultObject.message,
             'msg': resultObject.message,
-            'isR18': resultObject.isR18.toString()
+            'isR18': resultObject.isR18
         };
     },
     'POST /api/spider': async (ctx, next) => {
@@ -62,15 +66,19 @@ module.exports = {
                 case 'pawoo':
                     resultObject = await spider.pawoo(query['id']);
                     break;
-                case "medibang":
+                case 'medibang':
                     resultObject = await spider.medibang(query['id']);
                     break;
-                case "yande":
+                case 'yande':
                     resultObject = await spider.yande(query['id']);
                     break;
                 default:
                     break;
             }
+        }
+
+        if (typeof (resultObject.isR18) === 'undefined') {
+            resultObject.isR18 = 'null';
         }
 
         ctx.response.type = 'application/json';
@@ -79,7 +87,7 @@ module.exports = {
             'pic': resultObject.pic,
             'message': resultObject.message,
             'msg': resultObject.message,
-            'isR18': resultObject.isR18.toString()
+            'isR18': resultObject.isR18
         };
     }
 };

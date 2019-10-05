@@ -27,7 +27,7 @@ module.exports = {
             let pixivJson = pixivResponse.data;
             let pageCount = pixivJson['body']['illust_details']['page_count'];
 
-            if (pixivJson['body']['illust_details']['tags'][0] === 'R18') {
+            if (pixivJson['body']['illust_details']['tags'][0] === 'R-18') {
                 isR18 = true;
             }
 
