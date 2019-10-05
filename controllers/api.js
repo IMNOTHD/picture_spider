@@ -37,7 +37,8 @@ module.exports = {
         ctx.response.body = {
             'code': resultObject.code,
             'pic': resultObject.pic,
-            'message': resultObject.message
+            'message': resultObject.message,
+            'msg': resultObject.message
         };
     },
     'POST /api/spider': async (ctx, next) => {
@@ -75,7 +76,8 @@ module.exports = {
         ctx.response.body = {
             'code': resultObject.code,
             'pic': resultObject.pic,
-            'message': resultObject.message
+            'message': resultObject.message,
+            'msg': resultObject.message
         };
     }
 };
