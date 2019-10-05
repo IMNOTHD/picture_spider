@@ -10,6 +10,7 @@ module.exports = {
     pixiv: async function (id, manga = 0) {
         let code = 500;
         let pic = '';
+        let isR18 = false;
 
         try {
             const proxy = {
@@ -25,6 +26,10 @@ module.exports = {
 
             let pixivJson = pixivResponse.data;
             let pageCount = pixivJson['body']['illust_details']['page_count'];
+
+            if (pixivJson['body']['illust_details']['tags'][0] === 'R18') {
+                isR18 = true;
+            }
 
             if (parseInt(manga) + 1 <= parseInt(pageCount)) {
                 let url;
@@ -52,7 +57,7 @@ module.exports = {
         }
 
         if (code === 200) {
-            return {code: code, pic: pic, message: ''};
+            return {code: code, pic: pic, message: '', isR18: isR18};
         } else if (code === 500) {
             return {code: code, pic: '', message: '服务错误，请重试'};
         } else {
