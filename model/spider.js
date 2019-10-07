@@ -10,7 +10,7 @@ module.exports = {
     pixiv: async function (id, manga = 0) {
         let code = 500;
         let pic = '';
-        let isR18 = false;
+        let isR18 = 'false';
 
         try {
             const proxy = {
@@ -28,7 +28,7 @@ module.exports = {
             let pageCount = pixivJson['body']['illust_details']['page_count'];
 
             if (pixivJson['body']['illust_details']['tags'][0] === 'R-18') {
-                isR18 = true;
+                isR18 = 'true';
             }
 
             if (parseInt(manga) + 1 <= parseInt(pageCount)) {
