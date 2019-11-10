@@ -1,7 +1,6 @@
-const spider = require('../model/spider');
-
 module.exports = {
-    'GET /api/spider': async (ctx, next) => {
+    'GET /api/spider/v1': async (ctx, next) => {
+        const spider = require('../model/api/spider/v1/main');
 
         let query = ctx.request.query;
 
@@ -46,7 +45,9 @@ module.exports = {
             'isR18': resultObject.isR18
         };
     },
-    'POST /api/spider': async (ctx, next) => {
+    'POST /api/spider/v1': async (ctx, next) => {
+        const spider = require('../model/api/spider/v1/main');
+
         let query = ctx.request.query;
 
         let resultObject = {
@@ -89,5 +90,11 @@ module.exports = {
             'msg': resultObject.message,
             'isR18': resultObject.isR18
         };
+    },
+    'GET /api/spider/v2': async (ctx, next) => {
+        const spider = require('../model/api/spider/v2/main');
+    },
+    'POST /api/spider/v2': async (ctx, next) => {
+        const spider = require('../model/api/spider/v2/main');
     }
 };
