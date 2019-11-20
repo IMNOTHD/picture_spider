@@ -24,7 +24,7 @@
 |id|是|string|图片id|
 |manga|否|integer|pixiv多图id, 默认0|
 
-####支持的图床
+#### 支持的图床
 + pixiv
 + donmai
 + pawoo
