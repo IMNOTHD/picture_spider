@@ -85,7 +85,7 @@ module.exports = {
                         //console.log(filePath);
                         try {
                             fs.writeFileSync(filePath, data);
-                            obj.picUrl = `/static/image/cache/${query['type']}_${query['id']}${imageType}`;
+                            obj.picUrl = `/image/cache/${query['type']}_${query['id']}${imageType}`;
                         } catch (e) {
                             return message.ERROR400MSG;
                         }

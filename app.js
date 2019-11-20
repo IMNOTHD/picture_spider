@@ -8,15 +8,23 @@
  */
 
 
-const Koa = require("koa");
+const Koa = require('koa');
 
-const bodyParser = require("koa-bodyparser");
+const koaBodyParser = require('koa-bodyparser');
 
-const router = require("koa-router")();
+const koaStatic = require('koa-static');
+
+const path = require('path');
+
+const koaRouter = require('koa-router')();
 
 const controller = require('./controller');
 
 const app = new Koa();
+
+const staticPath = './static';
+
+app.use(koaStatic(path.join(__dirname, staticPath)));
 
 // log request URL:
 app.use(async (ctx, next) => {
@@ -25,11 +33,11 @@ app.use(async (ctx, next) => {
 });
 
 
-app.use(bodyParser());
+app.use(koaBodyParser());
 
 app.use(controller());
 
-app.use(router.routes);
+app.use(koaRouter.routes);
 
 app.listen(3000);
 console.log('app started at port 3000...');

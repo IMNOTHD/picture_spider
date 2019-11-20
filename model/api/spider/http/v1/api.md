@@ -1,5 +1,7 @@
 > GET /api/spider/v1
 
+> 下载图片到/static/image/cache中
+
 ### 请求参数
 
 |参数名|必选|类型|描述|
