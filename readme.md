@@ -1,4 +1,4 @@
-# 爪巴
+# picture_spider
 
 这是一个主要二次元图床的爬虫程序，爬取pixiv/donmai等图床的图片，并返回base64编码的图片
 
