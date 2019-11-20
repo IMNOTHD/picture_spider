@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const cheerio = require('cheerio');
-const axios = require('axios-https-proxy-fix'); // 墙外使用axios并去除代理
+const axios = require('axios'); // 墙内需要代理则使用axios-https-proxy-fix
 const message = require('../../../../common/message');
 
 const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../../config/config.json'), 'utf-8'));
@@ -17,7 +17,8 @@ module.exports = {
             };
 
             const pixivResponse = await axios({
-                proxy: proxy,
+                // proxy: proxy,
+                // 墙内视情况使用proxy
                 method: 'get',
                 url: config['pixiv_ajax_url'] + id.toString()
             });
