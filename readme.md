@@ -14,6 +14,16 @@
 
 ---
 
+#### 支持的图床
++ pixiv
++ donmai
++ pawoo
++ medibang
++ yande
+
+---
+
+### 以下已废弃
 #### 请求参数
 
 ##### 方法:GET/POST
@@ -23,13 +33,6 @@
 |type|是|string|图床名|
 |id|是|string|图片id|
 |manga|否|integer|pixiv多图id, 默认0|
-
-#### 支持的图床
-+ pixiv
-+ donmai
-+ pawoo
-+ medibang
-+ yande
 
 #### 响应
 ###### *R18判定根据图床标签返回, 若无法判定返回null, 否则返回true/false*
