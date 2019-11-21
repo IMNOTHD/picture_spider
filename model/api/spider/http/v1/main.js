@@ -83,11 +83,15 @@ module.exports = {
                         } else if (/424D*/.test(imageTypeCheck)) {
                             imageType = '.bmp';
                         }
+                        if (query['manga'] === undefined) {
+                            query['manga'] = '0';
+                        }
+
                         const filePath = `${__dirname}/../../../../../static/image/cache/${query['type']}_${query['id']}_${query['manga']}${imageType}`;
                         //console.log(filePath);
                         try {
                             fs.writeFileSync(filePath, data);
-                            obj.picUrl = `/image/cache/${query['type']}_${query['id']}${imageType}`;
+                            obj.picUrl = `/image/cache/${query['type']}_${query['id']}_${query['manga']}${imageType}`;
                         } catch (e) {
                             return message.ERROR400MSG;
                         }
