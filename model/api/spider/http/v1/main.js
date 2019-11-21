@@ -8,6 +8,8 @@ const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHT
 module.exports = {
     getPictureCacheUrl: async function (query) {
         if (!fs.existsSync(`${__dirname}/../../../../../static/image/cache/`)) {
+            fs.mkdirSync(`${__dirname}/../../../../../static/`);
+            fs.mkdirSync(`${__dirname}/../../../../../static/image/`);
             fs.mkdirSync(`${__dirname}/../../../../../static/image/cache/`);
         }
 
@@ -81,7 +83,7 @@ module.exports = {
                         } else if (/424D*/.test(imageTypeCheck)) {
                             imageType = '.bmp';
                         }
-                        const filePath = `${__dirname}/../../../../../static/image/cache/${query['type']}_${query['id']}${imageType}`;
+                        const filePath = `${__dirname}/../../../../../static/image/cache/${query['type']}_${query['id']}_${query['manga']}${imageType}`;
                         //console.log(filePath);
                         try {
                             fs.writeFileSync(filePath, data);
