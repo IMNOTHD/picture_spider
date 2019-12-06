@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const cheerio = require('cheerio');
-const axios = require('axios'); // 墙内需要代理则使用axios-https-proxy-fix
+const axios = require('axios-https-proxy-fix'); // 墙内需要代理则使用axios-https-proxy-fix
 const message = require('../../../../common/message');
 
 const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../../config/config.json'), 'utf-8'));
@@ -17,13 +17,18 @@ module.exports = {
             };
 
             const pixivResponse = await axios({
-                // proxy: proxy,
+                proxy: proxy,
                 // 墙内视情况使用proxy
                 method: 'get',
                 url: config['pixiv_ajax_url'] + id.toString()
             });
 
             let pixivJson = pixivResponse.data;
+
+            if (pixivJson['body'] === undefined) {
+                return message.ERROR400MSG;
+            }
+
             let pageCount = pixivJson['body']['illust_details']['page_count'];
 
             if (pixivJson['body']['illust_details']['tags'][0] === 'R-18') {
